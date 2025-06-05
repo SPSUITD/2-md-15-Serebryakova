@@ -136,20 +136,6 @@ class MainView(arcade.View):
 
         self.fishes = 0
 
-       # for enemy in self.scene["enemy"]:
-       #     custom_enemy = Enemy(enemy)
-        #    custom_enemy.speed = randint(1,4)
-         #   self.enemies.append(custom_enemy)
-
-   # def enemies_movenment(self):
-    #    for enemy in self.enemies:
-      #      if enemy.center_x > enemy.initial_center_x + 15:
-         #       enemy.facing_direction = LEFT_FACING
-            #    if enemy.center_x < enemy.initial_center_x - 15:
-            #        enemy.facing_direction = RIGHT_FACING
-             #   enemy.center_x += enemy.speed * enemy.facing_direction
-
-
     def on_draw(self):
         self.clear()
         self.camera.use()
@@ -165,10 +151,6 @@ class MainView(arcade.View):
         arcade.Text(f"Level: {self.level}/{NUMBER_OF_LEVELS}", x=0, y=35).draw()
         arcade.Text(f"Time: {self.total_time_print}", x = 0, y = 20).draw()
         arcade.Text(f"Fishes: {self.fishes} / 3", x = 0, y = 5).draw()
-
-        #for enemy in self.enemies:
-            #arcade.draw_sprite(enemy)
-
 
     def center_camera_to_player(self):
      
@@ -335,18 +317,6 @@ class MainView(arcade.View):
             else:
                 game_over_view = GameOverView(self)
                 self.window.show_view(game_over_view)
-
-
-       # self.enemies_movenment()
-
-
-
-        #if self.fishes == 3:
-          #  self.level += 1
-
-           # self.setup()
-
-       # self.player_sprite.center_y +=1
 
 class MainMenuView(arcade.View):
     def __init__(self):
@@ -567,8 +537,6 @@ class MenuView(arcade.View):
     def on_show_view(self):
 
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
-
-
         self.manager.enable()
 
     def on_draw(self):
@@ -580,23 +548,6 @@ def main():
       menu_view = MainMenuView()
       window.show_view(menu_view)
       arcade.run()
-
-#class Enemy(arcade.Sprite):
-  #  def __init__(self, sprite):
-       # super().__init__()
-
-       # self.facing_direction = RIGHT_FACING
-
-       # self.texture = sprite.texture
-
-        #self.center_x = self.center_x
-       # self.center_y = self.center_y
-        #self.scale = sprite.scale
-
-        #self.initial_center_x = self.center_x
-       # self.initial_center_y = self.center_y
-
-       # self.speed = 2
 
 if __name__ == "__main__":
     main()
